@@ -18,33 +18,9 @@ It will be updated throughout the course as new work is completed.
 
 ---
 
-## Repository Structure
-
-```text
-Personal-Repository/
-│
-├── README.md
-├── Practicals/
-├── Assignments/
-├── Programs/
-└── Notes/
-```
-
-> The folder structure may be updated as more work is added.
-
----
-
-## Technologies / Tools
-
-* Python
-* Git & GitHub
-* VS Code
-* Add other tools/languages as required
-
----
-
 ## Author
 
-**Your Name**
-**UID:** Your UID
-**Subject:** Subject Name
+Ashutosh Maharaj
+24BAI70293
+24AML-7A
+Full Stack-II
