@@ -13,11 +13,17 @@
 
 ## About This Repository
 
-This repository contains my coursework, practicals, assignments, programs, notes, and other learning materials related to **Subject Name**.
+This repository contains my coursework, practicals, assignments, programs, notes, and other learning materials related to Full Stack-II.
 
 It will be updated throughout the course as new work is completed.
 
 ---
+
+## 🛠️ Tech Stack
+
+| JavaScript | JSX | Node.js |
+|:---:|:---:|:---:|
+| <img src="https://skillicons.dev/icons?i=js" width="55"> | <img src="https://skillicons.dev/icons?i=jsx" width="55"> | <img src="https://skillicons.dev/icons?i=nodejs" width="55"> |
 
 ## Author
 
