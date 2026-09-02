@@ -21,9 +21,14 @@ It will be updated throughout the course as new work is completed.
 
 ## 🛠️ Tech Stack
 
-| JavaScript | JSX | Node.js |
-|:---:|:---:|:---:|
-| <img src="https://skillicons.dev/icons?i=js" width="55"> | <img src="https://skillicons.dev/icons?i=jsx" width="55"> | <img src="https://skillicons.dev/icons?i=nodejs" width="55"> |
+<p align="left">
+
+  <img src="https://skillicons.dev/icons?i=html" width="55" alt="HTML">
+  <img src="https://skillicons.dev/icons?i=css" width="55" alt="CSS">
+  <img src="https://skillicons.dev/icons?i=javascript" width="55" alt="JavaScript">
+  <img src="https://skillicons.dev/icons?i=nodejs" width="55" alt="Node.js">
+
+</p>
 
 ## Author
 
