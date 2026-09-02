@@ -6,6 +6,7 @@
 | ----------- | ------------ |
 | **Name**    | Ashutosh Maharaj  |
 | **UID**     | 24BAI70293    |
+| **SECTION**     | 24AML-7A    |
 | **Subject** | Full Stack -II |
 
 ---
