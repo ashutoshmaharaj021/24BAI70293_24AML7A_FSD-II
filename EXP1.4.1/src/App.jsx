@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Calendar from "./components/Calendar";
 import PostModal from "./components/PostModal";
 import initialPosts from "./data/posts";
@@ -8,50 +8,67 @@ function App() {
   const [posts, setPosts] = useState(initialPosts);
   const [selectedPost, setSelectedPost] = useState(null);
 
-  // Handle event click
-  const handleEventClick = (info) => {
-    const post = posts.find(
-      (post) => post.id === info.event.id
-    );
+  /*
+   * useCallback keeps the same function reference
+   * between renders unless posts changes.
+   */
+  const handleEventClick = useCallback(
+    (info) => {
+      const post = posts.find(
+        (post) => post.id === info.event.id
+      );
 
-    setSelectedPost(post);
-  };
+      setSelectedPost(post || null);
+    },
+    [posts]
+  );
 
-  // Handle drag and drop
-  const handleEventDrop = (info) => {
-    const updatedDate = info.event.start;
-
-    setPosts((currentPosts) =>
-      currentPosts.map((post) =>
-        post.id === info.event.id
-          ? {
-              ...post,
-              date: updatedDate.toISOString(),
-            }
-          : post
-      )
-    );
-  };
-
-  // Handle event resize
-  const handleEventResize = (info) => {
-    const newStart = info.event.start;
-    const newEnd = info.event.end;
+  /*
+   * Update only the post that was moved.
+   */
+  const handleEventDrop = useCallback((info) => {
+    const updatedDate = info.event.start.toISOString();
 
     setPosts((currentPosts) =>
       currentPosts.map((post) =>
         post.id === info.event.id
           ? {
               ...post,
-              date: newStart.toISOString(),
-              end: newEnd
-                ? newEnd.toISOString()
-                : post.end,
+              date: updatedDate,
             }
           : post
       )
     );
-  };
+  }, []);
+
+  /*
+   * Update only the post whose duration changed.
+   */
+  const handleEventResize = useCallback((info) => {
+    const newStart = info.event.start.toISOString();
+
+    const newEnd = info.event.end
+      ? info.event.end.toISOString()
+      : null;
+
+    setPosts((currentPosts) =>
+      currentPosts.map((post) =>
+        post.id === info.event.id
+          ? {
+              ...post,
+              date: newStart,
+              end: newEnd || post.end,
+            }
+          : post
+      )
+    );
+  }, []);
+
+  const handleCloseModal = useCallback(() => {
+    setSelectedPost(null);
+  }, []);
+
+  console.log("App rendered");
 
   return (
     <div className="app">
@@ -59,6 +76,7 @@ function App() {
       <header className="app-header">
         <div>
           <h1>📅 Post Scheduler</h1>
+
           <p>
             Plan and manage your social media content
           </p>
@@ -82,7 +100,7 @@ function App() {
 
       <PostModal
         post={selectedPost}
-        onClose={() => setSelectedPost(null)}
+        onClose={handleCloseModal}
       />
 
     </div>
